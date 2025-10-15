@@ -55,19 +55,20 @@ repo-root/
 ├─ configs/                    # (optional) YAML-Konfigurationen
 ├─ results/                    # (wird erstellt) CSVs & Visualisierungen
 ├─ .env.example                # Beispiel für Pfad-Variablen
-├─ requirements.txt            # Python-Abhängigkeiten
+├─ .python-version             # UV - Python-Version pinnen
+├─ pyproject.toml              # UV - Projektdetails
+├─ uv.lock                     # UV - Generierte Datei für Dependencies
 └─ README.md                   # Diese Datei
 ```
 
 ---
 
 ## Schnellstart
-### 1) Python-Umgebung
+### 1) Python-Umgebung mit uv
 ```bash
-python -m venv .venv
+uv venv
 source .venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
+uv sync
 ```
 
 ### 2) Pfade konfigurieren
@@ -168,7 +169,7 @@ Die Intel® RealSense™ Tiefenkamera D435i (kurz D435i) ist unter [`camera.yaml
 - **`T_gt`** in `<item><id>.txt` beschreibt die Pose **Objekt im Kameraframe**.  
 - **Einheiten**: Tiefenmeter [m], Translation [m], Rotation [°] (für Berichte/CSV entsprechend angegeben).
 
-Eine eigenständige, komprimierte Referenz mit Beispielen ist in [`DATASET_LAYOUT.md`](./DATASET_LAYOUT.md) enthalten.
+Eine eigenständige, komprimierte Referenz mit Beispielen ist in [`DATASET_LAYOUT.md`](./docs/DATASET_LAYOUT.md) enthalten.
 
 ---
 
