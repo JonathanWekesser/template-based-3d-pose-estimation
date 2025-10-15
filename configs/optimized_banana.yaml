@@ -1,0 +1,30 @@
+# Optimized configuration for PoseInitializer
+# Optimized item: banana
+
+# --- Preprocessing ---
+voxel_size: 0.0194
+stat_nb_neighbors: 100
+stat_std_ratio: 0.117
+
+# --- Normals ---
+normal_radius: 0.043
+normal_max_nn: 33
+
+# --- Features (FPFH) ---
+fpfh_radius: 0.085
+fpfh_max_nn: 30
+
+# --- RANSAC ---
+ransac_corr_dist: 0.005
+ransac_n: 3
+ransac_edge_length: 0.915
+ransac_max_iter: 11217
+ransac_confidence: 0.98
+
+# --- ICP ---
+icp_variant: "p2p"   # options: p2p, p2l
+icp_corr_dist: 0.005
+icp_max_iter: 161
+
+# --- Visualization ---
+visualize: false

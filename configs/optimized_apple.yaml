@@ -1,0 +1,30 @@
+# Optimized configuration for PoseInitializer
+# Optimized item: apple
+
+# --- Preprocessing ---
+voxel_size: 0.020
+stat_nb_neighbors: 91
+stat_std_ratio: 0.206
+
+# --- Normals ---
+normal_radius: 0.017
+normal_max_nn: 78
+
+# --- Features (FPFH) ---
+fpfh_radius: 0.059
+fpfh_max_nn: 30
+
+# --- RANSAC ---
+ransac_corr_dist: 0.005
+ransac_n: 5
+ransac_edge_length: 0.787
+ransac_max_iter: 98406
+ransac_confidence: 0.916
+
+# --- ICP ---
+icp_variant: "p2p"
+icp_corr_dist: 0.016
+icp_max_iter: 39
+
+# --- Visualization ---
+visualize: false

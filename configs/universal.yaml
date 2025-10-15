@@ -1,0 +1,28 @@
+# universal.yaml
+# Generalized, object-agnostic registration configuration
+
+# --- Preprocessing ---
+voxel_size: 0.019           # [m] downsampling voxel size
+stat_nb_neighbors: 95       # [-] neighbors for statistical outlier removal
+stat_std_ratio: 0.16        # [-] std ratio for outlier removal
+
+# --- Normals & Features ---
+normal_radius: 0.038        # [m] ~ 2 × voxel_size
+normal_max_nn: 60           # [-] max neighbors for normal estimation
+fpfh_radius: 0.076          # [m] ~ 4 × voxel_size
+fpfh_max_nn: 30             # [-] max neighbors for FPFH
+
+# --- RANSAC (coarse alignment) ---
+ransac_corr_dist: 0.005     # [m] correspondence distance threshold
+ransac_n: 4                 # [-] sample size
+ransac_edge_length: 0.85    # [-] edge length consistency factor
+ransac_max_iter: 60000      # [-] max iterations
+ransac_confidence: 0.95     # [-] success probability
+
+# --- ICP (refinement) ---
+icp_variant: p2p            # "p2p" | "p2pl"
+icp_corr_dist: 0.010        # [m] correspondence distance
+icp_max_iter: 120           # [-] max iterations
+
+# --- Visualization ---
+visualize: false

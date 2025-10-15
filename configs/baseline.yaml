@@ -1,0 +1,29 @@
+# Baseline configuration for PoseInitializer
+
+# --- Preprocessing ---
+voxel_size: 0.005
+stat_nb_neighbors: 50
+stat_std_ratio: 0.7
+
+# --- Normals ---
+normal_radius: 0.1
+normal_max_nn: 30
+
+# --- Features (FPFH) ---
+fpfh_radius: 0.025
+fpfh_max_nn: 100
+
+# --- RANSAC ---
+ransac_corr_dist: 0.008
+ransac_n: 4
+ransac_edge_length: 0.9
+ransac_max_iter: 100000
+ransac_confidence: 0.99
+
+# --- ICP ---
+icp_variant: "p2p"   # options: p2p, p2l
+icp_corr_dist: 0.005
+icp_max_iter: 100
+
+# --- Visualization ---
+visualize: false

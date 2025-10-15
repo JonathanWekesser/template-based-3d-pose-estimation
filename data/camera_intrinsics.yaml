@@ -1,0 +1,11 @@
+# Intel Realsense D435i
+D435i:
+  intrinsics:
+    fx: 607.2747802734375
+    fy: 607.3233032226562
+    cx: 318.98992919921875
+    cy: 248.74452209472656
+
+  image_size:
+    width: 640
+    height: 480
