@@ -1,18 +1,20 @@
 services:
-  intel-realsense:
-    image: fbe-dockerreg.rwu.de/prj-iki-ros2/sensors/intel-realsense:jazzy
-    container_name: intel-realsense
-    devices:
-      - "/dev/bus/usb:/dev/bus/usb"
-    environment:
-      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-      - ROS_DOMAIN_ID=0
-    network_mode: host
+  # intel-realsense:
+  #   image: fbe-dockerreg.rwu.de/prj-iki-ros2/sensors/intel-realsense:jazzy
+  #   container_name: intel-realsense
+  #   devices:
+  #     - "/dev/bus/usb:/dev/bus/usb"
+  #   environment:
+  #     - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+  #     - ROS_DOMAIN_ID=0
+  #   network_mode: host
 
   pose-demo:
     build: .
     container_name: pose-demo
     environment:
+      - BASE_PATH=/app/
+      - DATA_PATH=/app/data/
       - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       - ROS_DOMAIN_ID=0
       - DISPLAY=${DISPLAY}
@@ -21,6 +23,7 @@ services:
       # - QT_QPA_PLATFORM=xcb
     volumes:
       - ..:/app:rw
+      - ../live-demo/src:/app/live-demo/code
       - /tmp/.X11-unix:/tmp/.X11-unix:rw   # X11-Socket ins Container
     network_mode: host
     privileged: true

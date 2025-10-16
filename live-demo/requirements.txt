@@ -1,0 +1,4 @@
+open3d-cpu
+dotenv
+opencv-python
+ultralytics

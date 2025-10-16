@@ -1,13 +1,18 @@
 # live-demo/demo.py
-import time
+# import time
 import rclpy
+import sys
+import os
+
 from bridge.ros_camera_bridge import ROSCameraBridge
+from visualization.live_visualizer import LiveVisualizer
+
+sys.path.append(os.path.abspath("src"))
 from camera import Camera
 from config import load_config_yaml
 from pose_initializer import PoseInitializer
 from template import TemplateLoader
 from paths import PathManager
-from visualization.live_visualizer import LiveVisualizer
 from mask import masked_image
 from segmentation import predict_segment, TargetNotFoundError
 from pcd_utils import depth_to_pcd
@@ -18,9 +23,10 @@ def main():
     print("[INFO] ROS Camera Bridge gestartet.")
 
     # Setup deiner Pipeline
-    pm = PathManager("apple")  # Beispielobjekt
-    cfg = load_config_yaml("config.yaml")
-    cam = Camera.from_yaml(pm.get_camera_path(), "realsense_d435")
+    pm = PathManager("apple")
+    cfg = load_config_yaml("./configs/universal.yaml")
+    print(pm.get_camera_path())
+    cam = Camera.from_yaml(pm.get_camera_path(), "D435i")
     tl = TemplateLoader(pm)
     templates = tl.load_all()
     pose_init = PoseInitializer(cfg, "apple", cam)

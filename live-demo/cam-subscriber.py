@@ -5,7 +5,7 @@ from cv_bridge import CvBridge, CvBridgeError
 import cv2
 import numpy as np
 
-TOPIC = '/intel_realsense/d435/depth/image_rect_raw',
+TOPIC = '/intel_realsense/d435/depth/image_rect_raw'
 
 class DepthImageSubscriber(Node):
     def __init__(self):
