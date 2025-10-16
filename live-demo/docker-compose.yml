@@ -1,0 +1,32 @@
+services:
+  intel-realsense:
+    image: fbe-dockerreg.rwu.de/prj-iki-ros2/sensors/intel-realsense:jazzy
+    container_name: intel-realsense
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb"
+    environment:
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - ROS_DOMAIN_ID=0
+    network_mode: host
+
+  pose-demo:
+    build: .
+    container_name: pose-demo
+    environment:
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      - ROS_DOMAIN_ID=0
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      # Falls Wayland aktiv ist:
+      # - QT_QPA_PLATFORM=xcb
+    volumes:
+      - ..:/app:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw   # X11-Socket ins Container
+    network_mode: host
+    privileged: true
+    # Für NVIDIA-Hosts (nur wenn Uni-Rechner NVIDIA + nvidia-container-toolkit):
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - capabilities: ["gpu"]
