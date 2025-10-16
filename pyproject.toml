@@ -11,6 +11,7 @@ dependencies = [
     "open3d>=0.19.0",
     "opencv-python>=4.11.0.86",
     "optuna>=4.5.0",
+    "pyrealsense2>=2.56.5.9235",
     "seaborn==0.13.2",
     "simpleicp>=2.0.15",
     "ultralytics==8.3.146",
