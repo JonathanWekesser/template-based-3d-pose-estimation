@@ -72,8 +72,7 @@ def process_snapshot(rgb, depth, item_name, cam, templates, pose_init):
 
     # Optional: Maskiertes RGB anzeigen
     cv2.imshow("RGB (masked)", masked_rgb)
-    cv2.waitKey(0)
-    cv2.destroyWindow("RGB (masked)")
+    cv2.waitKey(1)
 
     # Visualisierung der Szene und des registrierten Templates
     vis = o3d.visualization.Visualizer()
@@ -138,7 +137,7 @@ def main():
             depth = np.asanyarray(depth_frame.get_data())
             rgb = np.asanyarray(color_frame.get_data())
 
-            depth_colormap = cv2.applyColorMap(cv2.convertScaleAbs(depth, alpha=0.03), cv2.COLORMAP_JET)
+            depth_colormap = cv2.applyColorMap(cv2.convertScaleAbs(depth, alpha=0.03), cv2.COLORMAP_TURBO)
             images = np.hstack((rgb, depth_colormap))
 
             cv2.imshow("Live RGB and Depth", images)
