@@ -20,7 +20,7 @@ ransac_max_iter: 60000      # [-] max iterations
 ransac_confidence: 0.95     # [-] success probability
 
 # --- ICP (refinement) ---
-icp_variant: p2p            # "p2p" | "p2pl"
+icp_variant: p2p            # "p2p" | "p2l"
 icp_corr_dist: 0.010        # [m] correspondence distance
 icp_max_iter: 120           # [-] max iterations
 
