@@ -72,7 +72,7 @@ def process_snapshot(rgb, depth, item_name, cam, templates, pose_init):
 
     # Optional: Maskiertes RGB anzeigen
     cv2.imshow("RGB (masked)", masked_rgb)
-    cv2.waitKey(1)
+    cv2.waitKey(0)
 
     # Visualisierung der Szene und des registrierten Templates
     vis = o3d.visualization.Visualizer()
